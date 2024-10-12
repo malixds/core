@@ -24,19 +24,12 @@ class ChatController extends Controller
         $this->repository = $repository;
     }
 
-    public function chatCreate(Post $post, CreateChatService $service, int $executorId = null)
+    public function chatCreate(Post $post, CreateChatService $service, int $buddyId = null)
     {
-        if ($executorId !== null) {
-            $dto = new CreateChatDto(
-                userId: auth()->user()->id,
-                buddyId: $executorId,
-            );
-        } else {
-            $dto = new CreateChatDto(
-                userId: auth()->user()->id,
-                buddyId: $post->user->id
-            );
-        }
+        $dto = new CreateChatDto(
+            userId: auth()->user()->id,
+            buddyId: $buddyId,
+        );
         $chatId = $service->run($dto->getData());
         return redirect()->route('chat', ['id' => $chatId]);
     }

@@ -111,6 +111,10 @@
                         <a href="{{ route('executor.profile', $executor->id) }}"
                             class=" mt-4 relative mr-5 inline-block rounded-xl border border-[#1353FE] bg-white px-8 py-4 text-center font-semibold text-[#1353FE] [box-shadow:rgb(0,0,0)_6px_6px] hover:border-black md:mr-6">
                             Подробнее</a>
+                        <a href="{{ route('chat.create', ['buddyId' => $executor->id]) }}"
+                           class="relative mr-5 inline-block rounded-xl border border-[#1353FE] bg-white px-8 py-4 text-center font-semibold text-[#1353FE] [box-shadow:rgb(0,0,0)_6px_6px] hover:border-black md:mr-6">
+                            Write to customer
+                        </a>
                     </div>
                 @endforeach
             @endif

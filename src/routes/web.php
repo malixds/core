@@ -99,7 +99,7 @@ ROute::post('/review/send/{executor}', [ReviewController::class, 'reviewSend'])-
 //Route::get('/inbox/{id}', [ProfileController::class, 'inbox'])->name('user.inbox');
 
 Route::get('/chats', [ChatController::class, 'chats'])->name('chats');
-Route::get('/chat/create/{post}/{executorId?}', [ChatController::class, 'chatCreate'])->name('chat.create');
+Route::get('/chat/create/{buddyId}', [ChatController::class, 'chatCreate'])->name('chat.create');
 Route::get('/chat/{id}', [ChatController::class, 'chat'])->name('chat');
 Route::get('/chat/messages/{chat}', [ChatController::class, 'chatMessages'])->name('chat.messages');
 Route::post('/chat/send/{id}', [ChatController::class, 'chatSend'])->name('chat.send');

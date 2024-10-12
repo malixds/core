@@ -66,7 +66,7 @@
                         </div>
                     </a>
                     <div class="flex flex-col space-y-8 lg:flex lg:flex-row lg:space-x-3 lg:space-y-0">
-                        <a href="{{ route('chat.create', ['post' => $post]) }}"
+                        <a href="{{ route('chat.create', ['buddyId' => $post->user->id]) }}"
                             class="relative mr-5 inline-block rounded-xl border border-[#1353FE] bg-white px-8 py-4 text-center font-semibold text-[#1353FE] [box-shadow:rgb(0,0,0)_6px_6px] hover:border-black md:mr-6">
                             Write to customer
                         </a>
