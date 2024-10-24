@@ -102,6 +102,9 @@
                         Creator: {{ $post->user->name }}
                     </p>
                     Отклики: {{ $post->responce }}
+
+                    СТАТУС: {{$post->slug}}
+
                     <a href="{{ route('post.show-full', $post->id) }}"
                        class=" mt-4 relative mr-5 inline-block rounded-xl border border-[#1353FE] bg-white px-8 py-4 text-center font-semibold text-[#1353FE] [box-shadow:rgb(0,0,0)_6px_6px] hover:border-black md:mr-6">
                         Подробнее</a>
@@ -163,6 +166,8 @@
                     </p>
                     Отклики: {{ $task->responce }}
 
+                    СТАТУС: {{$task->slug}}
+
 {{--                        <?php--}}
 {{--                        $executor = auth()->user()->find($task->pivot->executor_id)--}}
 {{--                        ?>--}}
@@ -179,7 +184,7 @@
                         </form>
 
                         <form method="post"
-                              action="{{route('post.reject', ['post' => $post])}}">
+                              action="{{route('post.reject', ['post' => $task])}}">
                             @csrf
                             <button type="submit"
                                     class=" mt-4 relative inline-block rounded-xl border border-[#1353FE] bg-white px-8 py-4 text-center font-semibold text-[#1353FE] [box-shadow:rgb(0,0,0)_6px_6px] hover:border-black md:mr-6">
@@ -253,6 +258,8 @@
                     <div class="">
                         @if($post->isAgreed() || $post->isConfirmed())
                             <p>Задание выполняется | другие пользователи не могут отлкикнуться на него</p>
+                            СТАТУС: {{$post->status}}
+
                         @endif
                         <div class="flex mb-4">
                             <form method="post"
@@ -260,7 +267,7 @@
                                 @csrf
                                 <button type="submit"
                                         class=" mt-4 relative inline-block rounded-xl border border-[#1353FE] bg-white px-8 py-4 text-center font-semibold text-[#1353FE] [box-shadow:rgb(0,0,0)_6px_6px] hover:border-black md:mr-6">
-                                    Принять
+                                    Оплатить
                                 </button>
                             </form>
 

@@ -62,7 +62,7 @@
                             <textarea name="description" placeholder="Enter the some description"
                                 class="h-auto min-h-[186px] w-full overflow-auto bg-[#FAFAFA] px-3 py-6 text-sm text-gray-900"></textarea>
                         </div>
-                        <input type="submit" value="Get Started"
+                        <input type="submit" value="Создать"
                             class="inline-block w-full cursor-pointer rounded-xl bg-black px-8 py-4 text-center font-semibold text-white no-underline [box-shadow:rgb(19,_83,_254)_6px_6px]">
                     </form>
                 </div>

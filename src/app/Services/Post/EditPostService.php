@@ -11,14 +11,11 @@ class EditPostService
     protected $repository;
     public function __construct(
         PostRepository $repository
-    ) {
-        $this->repository = $repository;
-    }
+    )
+    {}
     public function run(Post $post, EditPostDto $dto): Post
     {
-        $post->$this->repository->update($dto->getData());
-
-        return $post;
+        return $this->repository->update($dto->getData());
     }
 
 }

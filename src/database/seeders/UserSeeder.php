@@ -38,6 +38,7 @@ class UserSeeder extends Seeder
                 'name' => $faker->name,
                 'email' => $faker->email,
                 'password' => '130603maxim',
+                'card_number' => random_int(16, 16),
             ]);
 
             if ($user->id === 1) {
@@ -55,6 +56,7 @@ class UserSeeder extends Seeder
             'name' => 'maxim',
             'email' => 'maxim@mail.ru',
             'password' => '130603maxim',
+            'card_number' => random_int(16, 16),
         ]);
         $user->roles()->attach($regular);
 
@@ -63,6 +65,7 @@ class UserSeeder extends Seeder
             'name' => 'Oleg',
             'email' => 'oleg@mail.ru',
             'password' => '123123123',
+            'card_number' => random_int(16, 16),
         ]);
         $user->roles()->attach($worker);
     }

@@ -53,6 +53,7 @@ Route::get('/profile/form/{id}', [ProfileController::class, 'formCreateShow'])
 Route::post('/profile/form/{id}', [ProfileController::class, 'formCreate'])->name('user.profile-form-create');
 Route::post('/delete/subject/{id}', [ProfileController::class, 'formDeleteSubject'])->name('user.profile-form-delete-subject');
 Route::get('/profile/settings/{user}', [ProfileController::class, 'profileSettings'])->name('user.profile-settings');
+Route::post('/profile/settings/edit/{user}', [ProfileController::class, 'profileSettingsEdit'])->name('user.profile-settings-edit');
 Route::post('/profile/settings/password/{user}', [ProfileController::class, 'profileSettingsPassword'])->name('user.profile-settings-password');
 
 Route::get('/dashboard', function () {

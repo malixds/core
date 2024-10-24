@@ -79,7 +79,6 @@ class PostController extends Controller
         );
 
         $post = $this->repository->create($dto->getData());
-
         return redirect()->route('post.show-full', ['id' => $post->id]);
     }
 

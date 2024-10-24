@@ -12,6 +12,7 @@ class FormCreateUserDto
         readonly public string $description,
 //        readonly public string $email,
         readonly public string $contactLink,
+        readonly public string $cardNumber,
     )
     {
     }
@@ -19,12 +20,10 @@ class FormCreateUserDto
     public function getData()
     {
         return [
-//            'user_id' => $this->userId,
 //            'subjects_arr' => $this->subjectsArr,
-//            'name' => $this->name,
             'description' => $this->description,
-//            'email' => $this->email,
             'contact_link' => $this->contactLink,
+            'card_number' => $this->cardNumber,
         ];
     }
 }

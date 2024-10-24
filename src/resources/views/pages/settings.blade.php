@@ -20,31 +20,36 @@
                         Lorem ipsum dolor sit amet consectetur adipiscing elit ut
                         aliquam,purus sit amet luctus magna fringilla urna
                     </p>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form name="wf-form-password" class="mb-4 w-full text-left" method="POST"
-                          action="{{ route('user.profile-form-create', $user->id) }}">
+                          action="{{ route('user.profile-settings-edit', $user->id) }}">
                         @csrf
                         <div class="mb-4 flex flex-col gap-y-2">
                             <label for="name-2" class="mb-1 font-bold">Nickname</label>
-                            <input name="contact_link" value="{{ $user->name }}"
-                                   placeholder="Enter Telegram Nickname" required
-                                   class="h-9 w-full bg-[#FAFAFA] px-3 py-6 text-sm text-gray-900">
-                        </div>
-                        <div class="mb-4 flex flex-col gap-y-2">
-                            <label for="name-2" class="mb-1 font-bold">Email</label>
-                            <input name="contact_link" value="{{ $user->email }}"
-                                   placeholder="Enter Telegram Nickname" required
+                            <input name="name" value="{{ $user->name }}"
+                                   required
                                    class="h-9 w-full bg-[#FAFAFA] px-3 py-6 text-sm text-gray-900">
                         </div>
                         <div class="mb-4 flex justify-between">
                             <div class="col-10">
-                                <label for="name-2" class="mb-1 font-bold">Telegram</label>
-                                <input name="contact_link" value="********"
-                                       placeholder="Enter Telegram Nickname" required
+                                <label for="name-2" class="mb-1 font-bold">Password</label>
+                                <input name="password" value="******"
+                                       required
                                        class="h-9 w-full bg-gray-300 px-3 py-6 text-sm text-gray-900" disabled>
                             </div>
-                            <!-- Button trigger modal -->
-                            <button id="myBtn">Open Modal</button>
+                            <button type="button" id="myBtn">Изменить пароль</button>
                         </div>
+                        @if (session('error'))
+                            <div class="alert alert-danger">{{ session('error') }}</div>
+                        @endif
                         <div class="mb-4 flex flex-col gap-y-2">
                             <label for="name-2" class="mb-1 font-bold">Telegram</label>
                             <input name="contact_link" value="{{ $user->contact_link }}"
@@ -69,18 +74,16 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                    <form action="{{route('user.profile-settings-password', $user)}}">
+                    <form action="{{route('user.profile-settings-password', $user)}}" method="POST">
                         @csrf
                         <div class="mb-4 flex flex-col gap-y-2">
-                            <label for="name-2" class="mb-1 font-bold">Your password</label>
-                            <input name="contact_link" value="{{ $user->contact_link }}"
-                                   placeholder="Enter Telegram Nickname" required
+                            <label for="name-2" class="mb-1 font-bold">Ваш текущий пароль</label>
+                            <input type="password" name="password" required
                                    class="h-9 w-full bg-[#FAFAFA] px-3 py-6 text-sm text-gray-900">
                         </div>
                         <div class="mb-4 flex flex-col gap-y-2">
                             <label for="name-2" class="mb-1 font-bold">New password</label>
-                            <input name="contact_link" value="{{ $user->contact_link }}"
-                                   placeholder="Enter Telegram Nickname" required
+                            <input type="password" name="new_password" required
                                    class="h-9 w-full bg-[#FAFAFA] px-3 py-6 text-sm text-gray-900">
                         </div>
                         <input type="submit" class="btn btn-primary">Save

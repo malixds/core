@@ -59,6 +59,30 @@
                                    placeholder="Enter Telegram Nickname" required
                                    class="h-9 w-full bg-[#FAFAFA] px-3 py-6 text-sm text-gray-900">
                         </div>
+
+                        <div class="mb-4 flex flex-col gap-y-2">
+                            <label for="name-2" class="mb-1 font-bold">Card Number</label>
+                            <input id="name-2" name="card_number" value="{{ $user->card_number }}"
+                                   placeholder="Enter Card Number" required
+                                   class="h-9 w-full bg-[#FAFAFA] px-3 py-2 text-sm text-gray-900"
+                                   oninput="formatInput(this)">
+                        </div>
+
+                        <script>
+                            function formatInput(element) {
+                                // Удаляем все символы, кроме цифр
+                                let value = element.value.replace(/[^0-9]/g, '');
+                                if (value.length > 16) {
+                                    value = value.substring(0, 16);
+                                }
+                                let formattedValue = '';
+                                for (let i = 0; i < value.length; i += 4) {
+                                    formattedValue += value.substring(i, i + 4) + ' ';
+                                }
+                                element.value = formattedValue.trim();
+                            }
+                        </script>
+
                         <input type="submit" value="Get Started"
                                class="inline-block w-full cursor-pointer rounded-xl bg-black px-8 py-4 text-center font-semibold text-white no-underline [box-shadow:rgb(19,_83,_254)_6px_6px]">
                     </form>

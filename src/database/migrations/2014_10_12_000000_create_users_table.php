@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('contact_link')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('card_number', 19);
             $table->rememberToken();
             $table->timestamps();
         });
